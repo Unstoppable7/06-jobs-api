@@ -1,5 +1,13 @@
 const mongoose = require("mongoose");
 
+const subTaskSchema = new mongoose.Schema({
+   title: String,
+   completed: {
+      type: Boolean,
+      default: false,
+   },
+});
+
 const taskSchema = new mongoose.Schema({
    title: {
       type: String,
@@ -22,16 +30,8 @@ const taskSchema = new mongoose.Schema({
       type: [String],
       default: [],
    },
-   subtasks: {
-      type: [
-         {
-            title: String,
-            completed: {
-               type: Boolean,
-               default: false,
-            },
-         },
-      ],
+   subTasks: {
+      type: [subTaskSchema],
       default: [],
    },
    timeSpent: {
