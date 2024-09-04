@@ -32,15 +32,15 @@ const createTask = async (req, res) => {
 
 const updateTask = async (req, res) => {
    const {
-      body: { company, position },
+      body: { title },
       user: { userId },
       params: { id: taskId },
    } = req;
 
-   if (company === "" || position === "") {
-      throw new BadRequestError("Company or Position fields cannot be empty");
+   if (title === "") {
+      throw new BadRequestError("Title field cannot be empty");
    }
-   const task = await Task.findByIdAndUpdate(
+   const task = await Task.findOneAndUpdate(
       { _id: taskId, createdBy: userId },
       req.body,
       { new: true, runValidators: true }
@@ -48,6 +48,7 @@ const updateTask = async (req, res) => {
    if (!task) {
       throw new NotFoundError(`No task with id ${taskId}`);
    }
+
    res.status(StatusCodes.OK).json({ task });
 };
 
@@ -57,7 +58,7 @@ const deleteTask = async (req, res) => {
       params: { id: taskId },
    } = req;
 
-   const task = await Task.findByIdAndRemove({
+   const task = await Task.findOneAndRemove({
       _id: taskId,
       createdBy: userId,
    });
