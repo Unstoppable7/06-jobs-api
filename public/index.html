@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Tasks List</title>
+   </head>
+
+   <body>
+      <h1>Tasks List</h1>
+      <hr />
+      <p id="message"></p>
+      <hr />
+      <div id="logon-register" style="display: none">
+         <button type="button" id="logon">logon</button>
+         <button type="button" id="register">register</button>
+      </div>
+      <div id="logon-div" style="display: none">
+         <form>
+            <div>
+               <label for="email">email:</label>
+               <input type="email" id="email" />
+            </div>
+            <div>
+               <label for="password">password:</label>
+               <input type="password" id="password" />
+            </div>
+            <button type="button" id="logon-button">logon</button>
+            <button type="button" id="logon-cancel">cancel</button>
+         </form>
+      </div>
+      <div id="register-div" style="display: none">
+         <form>
+            <div>
+               <label for="name">name:</label>
+               <input type="text" id="name" />
+            </div>
+            <div>
+               <label for="email1">email:</label>
+               <input type="email" id="email1" />
+            </div>
+            <div>
+               <label for="password1">password:</label>
+               <input type="password" id="password1" />
+            </div>
+            <div>
+               <label for="password2">verify password:</label>
+               <input type="password" id="password2" />
+            </div>
+            <button type="button" id="register-button">register</button>
+            <button type="button" id="register-cancel">cancel</button>
+         </form>
+      </div>
+      <div id="tasks" style="display: none">
+         <p id="tasks-message"></p>
+         <table id="tasks-table">
+            <tr id="tasks-table-header">
+               <th>Title</th>
+               <th>Description</th>
+               <th>Urgent</th>
+               <th>Due Date</th>
+               <th>Tags</th>
+               <th>Subtasks</th>
+               <th>TimeSpent</th>
+               <th>Status</th>
+               <th>Created At</th>
+               <th>Updated At</th>
+               <th colspan="2"></th>
+            </tr>
+         </table>
+         <button type="button" id="add-task">add task</button>
+         <button type="button" id="logoff">log off</button>
+      </div>
+      <div id="edit-task" style="display: none">
+         <form>
+            <div>
+               <label for="title">Title:</label>
+               <input type="text" id="title" />
+            </div>
+            <div>
+               <label for="description">Description:</label>
+               <input type="text" id="description" />
+            </div>
+            <div>
+               <label for="isUrgent">Urgent:</label>
+               <select id="isUrgent">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+               </select>
+            </div>
+            <div>
+               <label for="dueDate">Due Date:</label>
+               <input type="date" id="dueDate" />
+            </div>
+            <div>
+               <label for="tags">Tags:</label>
+               <input type="text" id="tags" />
+            </div>
+            <div>
+               Sub-Tasks:
+               <div id="sub-tasks">
+                  <div id="div-sub-task-1">
+                     <label for="sub-task-1">1.</label>
+                     <input type="text" id="sub-task-1" />
+                  </div>
+               </div>
+               <button type="button" id="new-sub-task">
+                  Add another sub-task
+               </button>
+               <button type="button" id="delete-last-sub-task" style="display: inline;">
+                  Delete last sub-task
+               </button>
+            </div>
+            <div>
+               <label for="status">Status:</label>
+               <select id="status">
+                  <option value="pending">pending</option>
+                  <option value="in-progress">in-progress</option>
+                  <option value="completed">completed</option>
+                  <option value="archived">archived</option>
+               </select>
+            </div>
+            <button type="button" id="adding-task">add</button>
+            <button type="button" id="edit-cancel">cancel</button>
+         </form>
+      </div>
+      <script src="./index.js" type="module"></script>
+   </body>
+</html>
